@@ -1,0 +1,74 @@
+---
+date: "2015-07-15"
+title: 常用链接
+---
+
+
+# IDMR友情链接
+
+- [[灾后重建与管理学院](http://idmr.scu.edu.cn/)]
+
+## 中心所
+- [[全国青少年防灾减灾教育研究基地](http://www.drredu.cn/)]
+- [[四川省应急管理厅-四川大学综合减灾研究中心](http://www.drredu.cn/)]
+- [[四川大学安全应急技能训练中心](http://safe.leao.scu.edu.cn/)]
+
+## 国际平台
+
+- [[AOA-HELP](http://www.aoa-help.org/)] 
+- [[Uinspire-Huaxia](http://www.uinspire.cn/)] 
+- [[HUC-DRRR](http://www.uinspire.cn/)]
+
+## 个人网站
+
+[[Basanta](http://bradhikari.com.np/)]
+[[Glenn](https://glennfernandez.net/)]
+
+## 双创
+
+[[安全圈](https://www.safetyzone.vip/)]
+
+
+# 四川大学
+
+[[校车表](http://www.scu.edu.cn)]
+[[校历](http://www.scu.edu.cn)]
+
+## 系统
+
+[[信息门户](http://my.scu.edu.cn/)]
+[[财务处](http://www.scu.edu.cn)]
+[[教务处](http://www.scu.edu.cn)]
+[[科研院](http://kygl.scu.edu.cn/userAction!to_login.action)]
+[[设备处](http://leao.scu.edu.cn/)]
+http://smartlab.scu.edu.cn/lims/home/index.dhtml
+
+## 教学
+
+[[大创](http://jxyw.scu.edu.cn:8081/cdcxcy/)]
+[[泛雅](http://scu.fanya.chaoxing.com/portal)]
+[[研究生院](http://gs.scu.edu.cn/)]
+[[教务处](http://jwc.scu.edu.cn/)]
+[[各学院](http://www.scu.edu.cn/zzjg/xysz.htm)]
+
+## 科研
+
+[[科研院](http://www.scu.edu.cn/zzjg/xysz.htm)]
+[[社科处](http://www.scu.edu.cn/zzjg/xysz.htm)]
+[[设备处](http://www.scu.edu.cn/zzjg/xysz.htm)]
+
+## 国际交流
+
+## 社会服务
+
+# GIS数据
+[【数据】3S数据源链接](https://www.xrlab.org/2020/07/27/3s-data-link/)
+
+# 资料搜索
+[[兔兔](http://www.bzfxw.com/)]
+[[风云](https://www.lingfengyun.com/)]
+[[文库](https://wenku.baidu.com/)]
+
+# XRLAB 内部链接
+[[每周TODO](https://docs.qq.com/sheet/DT1hzZHNHaktoU3RY)]
+

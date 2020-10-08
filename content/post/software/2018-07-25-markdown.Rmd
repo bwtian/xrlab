@@ -1,0 +1,1689 @@
+---
+title: 【软件】markdown入门及学术写作
+author: 'Bingwei Tian'
+date: "`r Sys.Date()`"
+slug: markdown
+categories: []
+tags: []
+---
+```{r eval=FALSE, include=FALSE}
+<!-- # 作者简介{#author .unnumbered} -->
+
+<!-- 田兵伟 工学博士，四川大学-香港理工大学 灾后重建与管理学院副教授 -->
+
+<!-- title: "用markdown进行学术写作" -->
+<!-- author: "田兵伟" -->
+<!-- date: "`r Sys.Date()`" -->
+<!-- documentclass: ctexbook -->
+<!-- bibliography: [book.bib, packages.bib] -->
+<!-- biblio-style: apalike -->
+<!-- link-citations: yes -->
+<!-- colorlinks: yes -->
+<!-- lot: yes -->
+<!-- lof: yes -->
+<!-- geometry: [a4paper, tmargin=2.5cm, bmargin=2.5cm, lmargin=3.5cm, rmargin=2.5cm] -->
+<!-- site: bookdown::bookdown_site -->
+<!-- description: "一本Markdown书。" -->
+<!-- github-repo: SCUSIT/md -->
+<!-- #cover-image: images/cover.jpg -->
+
+
+<!-- ```{r setup, include=FALSE} -->
+<!-- options( -->
+<!--   htmltools.dir.version = FALSE, formatR.indent = 2, width = 55, digits = 4 -->
+<!-- ) -->
+
+<!-- # 填上你需要用到的包，如 c('ggplot2', 'dplyr') -->
+<!-- lapply(c(), function(pkg) { -->
+<!--   if (system.file(package = pkg) == '') install.packages(pkg) -->
+<!-- }) -->
+<!-- ``` -->
+
+<!-- # 前言 {-} -->
+
+
+
+<!-- ```{r} -->
+<!-- sessionInfo() -->
+<!-- ``` -->
+
+
+
+<!-- ```{block2, type='flushright', html.tag='p'} -->
+<!-- 田兵伟 -->
+<!-- 于 四川大学-香港理工大学 灾后重建与管理学院 -->
+<!-- ``` -->
+
+
+
+
+
+
+<!-- Markdown 语法：黑色 -->
+
+<!-- Html 语法：蓝色 -->
+
+<!-- Latex 语法：红色 -->
+
+
+
+
+
+<!-- 本例使用的编辑工具是 MacDown，左边为 Markdown 标记的源码，右边有编辑器渲染的效果。 -->
+
+<!-- Markdown 编辑器推荐 -->
+
+
+<!-- 哪些网站支持 Markdown？ -->
+<!-- 简书、知乎、CSDN、Github、Gitlab、Gitbook 全部都支持 Markdown 写作。 -->
+
+<!-- 更多 Markdown 内容请参考《Markdown 实用指南》 -->
+<!-- --------------------- -->
+<!-- 作者：毕小烦 -->
+<!-- 来源：CSDN -->
+<!-- 原文：https://blog.csdn.net/wirelessqa/article/details/69659073 -->
+<!-- 版权声明：本文为博主原创文章，转载请附上博文链接！ -->
+
+
+
+<!-- ## 主要应用 -->
+
+
+<!-- 本文节选自 《Markdown 实用指南》 本章主要让大家了解 Markdown 是什么。 -->
+
+
+
+<!-- Markdown 语法 -->
+
+<!-- Markdown 是什么？ -->
+<!-- Markdown 是目前互联网上最流行的写作语言，它使用一些简单的符号（* / ` > [] () #）来标记文本格式，其简洁的语法、优美的格式以及强大的软件支持深受广大网友的喜爱。 -->
+
+<!-- 维基百科上对 Markdown 的描述： -->
+
+<!-- ” Markdown 是一种轻量级标记语言，创始人是约翰·格鲁伯（John Gruber）。它允许人们 “使用易读易写的纯文本格式编写文档，然后转换成有效的 HTML 文档。” -->
+
+<!-- 大家千万不要被一些专业术语唬住了，其实 Markdown 之所以流行，最主要的原因就是因为它的学习门槛很低，你可能只需花几分钟就可以入门了。 -->
+
+
+<!-- Markdown 创始人约翰·格鲁伯（John Gruber）的博客 -->
+
+<!-- 为什么要用 Markdown？ -->
+<!-- 回想一下我们在写作的时候会遇到什么样的问题？ -->
+
+<!-- 软件不会用：Word 应该是大家写作时最常用的软件，每当打开一个 Word 文档，速度慢先不说，光是复杂繁多的功能就已经足够让你眼花缭乱了，如果你不是专业的编辑，相信绝大部分功能你是用不到的。消除浪费，应该是现代互联网时代大家最先要学会的事情。 -->
+<!-- 软件不兼容：这个想必是大家最痛苦的事情，我用的 Word 版本是 2016，你用的是 2003，两人互传资料，一打开格式全乱了。 -->
+<!-- 格式不兼容：从网上复制一段文字到 Word 文档中，然后格式全乱了。反之，从 Word 文档中复制一段文字到网上，格式也全乱了，又需要重新调整。 -->
+<!-- 排版太费时间：工具通常是这样，提供的功能越多，我们想的也越多，遇到的问题也就会越多。写作时总想着换种字体会不会好看一些，换个颜色试试，行高要不要调整一下，行距是不是太大了，用一下这个功能怎么样等等，时间就是这样一点点被浪费的。罗振宇在 2016 年 “时间的朋友” 跨年演讲中提到过一个观点我非常认同，他说：”当我需要一个服务的时候，不要给我太多选择，请直接告诉我什么是最好的，我要你的最佳方案”。 -->
+<!-- 难以团队协作：如果一个项目需要多人共同参与，比如共同翻译一本书，你可能需要版本管理、相互 Review、开放试读、开源、自出版等等，这些使用 Word 是无法满足需求的。也许你说可以使用 Google Doc，但前提是没那么多人会科学上网。 -->
+<!-- Markdown 如何解决这些问题的呢？ -->
+
+<!-- 语法简单： Markdown 的语法是一些简单而且常用的标记符号，任何人只要花几分钟就能学会； -->
+<!-- 兼容性强： Markdown 是兼容性非常强的纯文本内容，可以使用任何编辑器打开，格式都不会乱； -->
+<!-- 导出方便： Markdown 可以导出 PDF、Word、HTML、Epub、LaTeX 等文件格式； -->
+<!-- 专注内容： 使用 Markdown 写作再也不用纠结排版，其简洁优雅的格式会让你沉浸到写作的乐趣之中； -->
+<!-- 团队协作： Github、Gitlab、Gitbook 都支持 Markdown，团队协作再也不是问题了； -->
+<!-- 本文节选自 《Markdown 实用指南》 -->
+
+<!-- 什么时候不合适用 Markdown 呢？ -->
+
+<!-- 需要复杂排版的时候，比如纸版图书编辑就不太适合用 Markdown。我的做法是从 Markdown 导出 Word 文档，然后交给编辑。 -->
+<!-- 需要复杂表格的时候，因为 Markdown 对表格的支持太简单了。 -->
+<!-- 需要调整图片大小或直接贴本地图片的时候。 -->
+<!-- Markdown 怎么用？ -->
+<!-- 先熟悉 Markdown 语法，再学会使用 Markdown 工具。请记住，语法是一切的基础，熟悉了语法以后，使用什么工具都可以，好用的工具只是让效率更高而已。 -->
+
+<!-- Markdown 语法分为：标准语法和扩展语法。 -->
+
+<!-- 标准语法适用于所有 Markdown 工具，扩展语法可能每个工具都不一样。 -->
+
+<!-- 为什么会有扩展语法呢？ -->
+
+<!-- 由于 Markdown 本身的功能有限，一些特定的需求和场景无法被满足，因此产生了许多第三方的扩展语法。根据不同的需求和场景， Markdown 被扩展了很多功能，比如待办事项（任务列表）、代码高亮。 -->
+
+<!-- 比较流行的扩展语法是 Github 风格的 Markdown：GitHub Flavored Markdown，毕竟全球最大的程序员『交友』网站。 -->
+
+<!-- 正是由于 Markdown 第三方扩展语法太多，存在一定程序的碎片化，因此有一些机构和公司试图对 Markdown 语法进行标准化，这个可以参考 CommonMark 。 -->
+
+<!-- Markdown 举例 -->
+
+
+
+<!-- 本例使用的编辑工具是 MacDown，左边为 Markdown 标记的源码，右边有编辑器渲染的效果。 -->
+
+<!-- Markdown 编辑器推荐 -->
+
+
+<!-- 哪些网站支持 Markdown？ -->
+<!-- 简书、知乎、CSDN、Github、Gitlab、Gitbook 全部都支持 Markdown 写作。 -->
+
+<!-- ```{r} -->
+<!-- # markdown大纲 -->
+<!-- # 一级标题 -->
+<!-- ## 二级标题 -->
+<!-- ### 三级标题 -->
+<!-- #### 四级标题 -->
+<!-- ##### 五级标题 -->
+<!-- ###### 六级标题 -->
+
+<!-- ``` -->
+
+
+
+
+
+<!-- ``` {markdown} -->
+<!-- **加粗**  或  <b>加粗</b> -->
+<!-- ``` -->
+<!-- **加粗**  或  <b>加粗</b> -->
+
+
+<!-- ```{markdown} -->
+<!-- *斜体* -->
+<!-- ``` -->
+
+<!-- *斜体* -->
+
+<!-- ```{markdown} -->
+<!-- <u>下划线</u> -->
+<!-- ``` -->
+
+<!-- <u>下划线</u> -->
+
+<!-- ```{markdown} -->
+<!-- ~~删除线~~ -->
+<!-- ``` -->
+<!-- ~~删除线~~ -->
+<!-- ```{markdown} -->
+<!-- * * *分割线 -->
+<!-- ``` -->
+<!-- * * * -->
+
+<!-- ```{markdown} -->
+<!-- > 引用文本 -->
+<!-- ``` -->
+<!-- > 引用文本 -->
+
+<!-- Markdown 是什么？ -->
+
+<!-- Markdown 是一种轻量级的「标记语言」，创始人为约翰·格鲁伯，用简洁的语法代替排版，目前被越来越多的知识工作者、写作爱好者、程序员或研究员广泛使用。其常用的标记符号不超过十个，相对于更为复杂的 HTML 标记语言来说，Markdown 十分的轻量，学习成本也不需要太多，且一旦熟悉这种语法规则，会有沉浸式编辑的效果。 -->
+
+<!-- 另外，印象笔记 Markdown 支持 CommonMark 和 GFM (GitHub Flavored Markdown) 标准。 -->
+
+
+<!-- 印象笔记里 Markdown 有什么特点？ -->
+
+<!-- 一键创建：支持 Markdown 独立的一键新建入口，为深度 Markdown 用户提供更好的效率体验； -->
+<!-- 支持丰富的主流 Markdown 语法：支持文字相关样式、序号列表、任务列表、表格、TOC 目录、多种图表、数学公式、流程图、时序图、甘特图等； -->
+<!-- 支持插入图片：可插入网络图片 或 直接拖动本地图片、复制剪贴板中的图片到 Markdown 笔记中； -->
+<!-- 支持多种模式切换：编辑与预览模式、纯编辑模式以及纯预览模式； -->
+<!-- 支持多种编辑主题：预置了白色、黑色、深空灰和印象绿主题，默认为印象绿，未来会有更多主题提供； -->
+<!-- 跨平台同步：创建的 Markdown 笔记可在登录了印象笔记帐户的各端查看，未来更多端会支持创建和编辑 Markdown 笔记； -->
+<!-- 演示模式：Markdown 笔记支持演示模式查看； -->
+<!-- 支持其他印象笔记特点功能：笔记标注、导出 PDF、设置提醒、工作群聊共享-查看&编辑笔记等。 -->
+
+
+<!-- 如何创建 Markdown 笔记？ -->
+<!-- 点击左上角「新建 Markdown 笔记」来创建新的 Markdown 笔记 -->
+<!-- 点击顶部菜单栏-文件-新建Markdown笔记 -->
+<!-- 使用快捷键 CMD+D 来快速创建 Markdown 笔记 -->
+
+<!-- 印象笔记 Markdown 笔记支持哪些语法？ -->
+
+<!-- —— 以下语法均支持在编辑工具栏直接操作 —— -->
+
+<!-- 1、设置分级标题 -->
+
+<!-- ```{r} -->
+<!-- # 语法示例： -->
+<!-- # 一级标题 -->
+<!-- ## 二级标题 -->
+<!-- ### 三级标题 -->
+<!-- #### 四级标题 -->
+<!-- ##### 五级标题 -->
+<!-- ###### 六级标题 -->
+<!-- ``` -->
+
+<!-- 2、加粗文本 -->
+<!-- 语法示例： -->
+<!-- **印象笔记** -->
+
+
+<!-- 3、斜体 -->
+<!-- 语法示例： -->
+<!-- *印象笔记* -->
+
+<!-- 4、下划线 -->
+<!-- 语法示例： -->
+<!-- <u>印象笔记</u> -->
+
+
+<!-- 5、删除线 -->
+<!-- 语法示例： -->
+<!-- ~~印象笔记不支持 -->
+<!-- Markdown -->
+<!-- ~~ -->
+
+
+<!-- 6、添加分隔线 -->
+<!-- 语法示例： -->
+<!-- * * * -->
+
+<!-- 7、引用文本 -->
+<!-- 语法示例： -->
+<!-- >近日，印象笔记宣布完成重组。作为 -->
+<!-- Evernote -->
+<!-- 已在中国独立运营近 -->
+<!-- 6 -->
+<!-- 年的品牌，印象笔记将成为由中方控股的中美合资独立运营实体，并获得红杉宽带跨境数字产业基金首轮数亿元人民币投资。 -->
+
+
+<!-- 8、添加符号列表或者数字列表 -->
+<!-- 语法示例： -->
+<!-- 使用 iOS 版本印象笔记如何快速保存内容？ -->
+<!-- 1. -->
+<!--  启用印象笔记 -->
+<!-- Widget -->
+<!--  ——印象笔记·剪贴板 -->
+<!-- 2. -->
+<!--  复制粘贴任意内容 -->
+<!--  * 微信 -->
+<!-- 3. -->
+<!--  滑动到 -->
+<!-- Widget -->
+<!--  插件区域即可完成保存 -->
+<!-- 印象笔记·剪贴板有什么特点？ -->
+<!-- * 快：开启自动模式，可以自动保存剪贴板的任意内容 -->
+<!-- * 一切：只要可以复制粘贴就可以保存 -->
+<!-- * 有序：全部保存在「我的剪贴板」笔记本并以时间来命名 -->
+
+
+<!-- 9、添加待办事项 -->
+<!-- 语法示例： -->
+<!-- 三只青蛙 -->
+<!-- * [x] 第一只青蛙 -->
+<!-- * [ ] 第二只青蛙 -->
+<!-- * [ ] 第三只青蛙 -->
+
+
+<!-- 10、插入链接 -->
+<!-- 语法示例： -->
+<!-- [印象笔记官网](https: -->
+<!-- //www.yinxiang.com/) -->
+
+
+<!-- 11、插入图片 -->
+<!-- 印象笔记支持嵌入网络图片或者直接拖入本地图片，其中本地图片格式支持 jpg、png 和 gif。 -->
+<!-- 语法示例： -->
+<!-- ![image](https: -->
+<!-- //www.yinxiang.com/blog/wp-content/uploads/2018/07/%E5%94%AE%E7%A5%A8%E5%BE%AE%E4%BF%A1%E5%B0%81%E9%9D%A22.png) -->
+
+
+<!-- 另外，针对插入的本地图片可以控制图片大小，在拖拽、拷贝或者点击插入本地图片之后，直接在图片名称后面（无需空格）添加以下语法均可以按照以下要求控制图片大小： -->
+<!-- @w=300 -->
+<!-- @h=150 -->
+<!-- @w=200h=100 -->
+<!-- @h=100w=200 -->
+
+<!-- 示例笔记 -->
+<!-- 782d277a1dbc7dea8480267cf5f87ebd -->
+<!-- .png@w= -->
+<!-- 300 -->
+
+
+<!-- 12、插入表格 -->
+<!-- 语法示例： -->
+<!-- | 帐户类型 | 免费帐户 | 标准帐户 | 高级帐户 | -->
+<!-- | --- | --- | --- | --- | -->
+<!-- | 帐户流量 | -->
+<!-- 60M -->
+<!--  | -->
+<!-- 1GB -->
+<!--  | -->
+<!-- 10GB -->
+<!--  | -->
+<!-- | 设备数目 | -->
+<!-- 2 -->
+<!-- 台 | 无限制 | 无限制 | -->
+<!-- | 当前价格 | 免费 | ￥ -->
+<!-- 8.17 -->
+<!-- /月 | ￥ -->
+<!-- 12.33 -->
+<!-- /月| -->
+
+<!-- 13、插入图表 -->
+<!-- 目前支持饼状图、折线图、柱状图和条形图，只需将 type 改为对应的pie、line、column 和 bar。 -->
+<!-- ```chart -->
+<!-- ,预算,收入,花费,债务 -->
+<!-- June,5000,8000,4000,6000 -->
+<!-- July,3000,1000,4000,3000 -->
+<!-- Aug,5000,7000,6000,3000 -->
+<!-- Sep,7000,2000,3000,1000 -->
+<!-- Oct,6000,5000,4000,2000 -->
+<!-- Nov,4000,3000,5000, -->
+<!-- type: pie -->
+<!-- title: 每月收益 -->
+<!-- x.title: Amount -->
+<!-- y.title: Month -->
+<!-- y.suffix: $ -->
+
+<!-- 14、插入行内代码或代码块 -->
+<!-- 印象笔记 Markdown 语法支持几十种编程语言的高亮的显示。 -->
+<!-- 语法示例： -->
+
+<!-- ```{python} -->
+<!-- #!/usr/bin/python -->
+<!-- import re -->
+<!-- line = "Cats are smarter than dogs" -->
+<!-- matchObj = re.match( r'(.*) are (.*?) .*', line, re.M|re.I) -->
+<!-- if matchObj: -->
+<!--     print "matchObj.group() : ", matchObj.group() -->
+<!--     print "matchObj.group(1) : ", matchObj.group(1) -->
+<!--     print "matchObj.group(2) : ", matchObj.group(2) -->
+<!-- else: -->
+<!--     print "No match!!" -->
+<!-- ``` -->
+
+<!-- 15、插入数学公式 -->
+<!-- 印象笔记 Markdown 支持绝大多数的 LaTeX 数学公式 -->
+<!-- 语法示例： -->
+<!-- e^{i\pi} + -->
+<!-- 1 -->
+<!--  = -->
+<!-- 0 -->
+<!-- 更多数学公式的输入可以参考： https://khan.github.io/KaTeX/docs/supported.html -->
+
+
+
+<!-- 16、插入流程图 -->
+<!-- 语法示例： -->
+<!-- graph TD -->
+<!-- A[模块A] -->|A1| B(模块B) -->
+<!-- B --> C{判断条件C} -->
+<!-- C -->|条件C1| D[模块D] -->
+<!-- C -->|条件C2| E[模块E] -->
+<!-- C -->|条件C3| F[模块F] -->
+
+
+<!-- 17、插入时序图 -->
+<!-- 语法示例： -->
+<!-- sequenceDiagram -->
+<!-- A->>B: 是否已收到消息？ -->
+<!-- B-->>A: 已收到消息 -->
+
+
+<!-- 18、插入甘特图 -->
+<!-- 语法示例： -->
+<!-- gantt -->
+<!-- title 甘特图 -->
+<!-- dateFormat YYYY-MM-DD -->
+<!-- section 项目A -->
+<!-- 任务 -->
+<!-- 1 -->
+<!--  :a1, -->
+<!-- 2018 -->
+<!-- - -->
+<!-- 06 -->
+<!-- - -->
+<!-- 06 -->
+<!-- , -->
+<!-- 30d -->
+<!-- 任务 -->
+<!-- 2 -->
+<!--  :after a1 , -->
+<!-- 20d -->
+<!-- section 项目B -->
+<!-- 任务 -->
+<!-- 3 -->
+<!--  : -->
+<!-- 2018 -->
+<!-- - -->
+<!-- 06 -->
+<!-- - -->
+<!-- 12 -->
+<!--  , -->
+<!-- 12d -->
+<!-- 任务 -->
+<!-- 4 -->
+<!--  : -->
+<!-- 24d -->
+
+
+<!-- 19、设置目录 -->
+<!-- 设置之后可以自动根据设置的分级标题来自动生成目录。 -->
+<!-- 语法示例： -->
+<!-- [TOC] -->
+<!-- ``` -->
+
+<!-- # Markdown 备注 -->
+<!-- 备注用于临时不用信息的隐藏和备忘。比如中英文信息等。 -->
+<!-- ## HTML格式 -->
+<!-- trpora 暂时不支持`<!--备注 -->`格式 -->
+<!-- 支持软件： -->
+<!-- > <!— -->
+<!-- > -->
+<!-- > 中间为备注部分 -->
+<!-- > -->
+<!-- > —> -->
+
+<!-- ## 中括号格式 -->
+
+<!-- [:><:] -->
+
+<!-- # Markdown软件 -->
+
+
+<!-- ## 识别 -->
+<!-- ## 写作 -->
+<!-- ### 所见即所得 -->
+<!-- ### 源代码 -->
+<!-- ### 在线 -->
+<!-- #### 分享的 -->
+<!-- ### -->
+<!-- ### Typora -->
+<!-- ### Vscode -->
+<!-- ### Atom -->
+<!-- ### Emacs -->
+<!-- ### Sublime -->
+
+<!-- ### Rstudio -->
+<!-- ## 总结 -->
+
+<!-- 关于markdown的软件有很多，我们可以同时用多个软件编辑同一个文档。继续编辑 -->
+
+<!-- |      |      |      |      | -->
+<!-- | :--- | ---- | ---- | ---- | -->
+<!-- |      |      |      |      | -->
+<!-- |      |      |      |      | -->
+<!-- |      |      |      |      | -->
+<!-- |      |      |      |      | -->
+<!-- |      |      |      |      | -->
+<!-- # 重要扩展插件 -->
+<!-- 插件：斜体字 -->
+<!-- ## 预览类 -->
+<!-- ### *Markdown Preview Enhanced* -->
+<!-- #### 常规功能 -->
+<!-- *Markdown Preview* -->
+<!-- #### 图像功能 -->
+<!-- #### 图像功能 -->
+<!-- - mermaid -->
+<!-- - PlantUML -->
+<!-- - WaveDrom -->
+<!-- - GraphViz -->
+<!-- - Vega & Vega-lite， -->
+<!-- - Ditaa -->
+<!-- #### 代码渲染 -->
+<!-- - TikZ- -->
+<!-- - Python -->
+<!-- - Matplotlib -->
+<!-- - Plotly -->
+
+<!-- ### -->
+
+<!-- ## 总结 -->
+<!-- 插件Y总结 -->
+<!-- MPE：可以安装到 Vscode, Atom, -->
+
+<!-- | Extentions | MPE | Typora | -->
+<!-- | ---------- | --- | ------ | -->
+<!-- | graphviz   | Y   |     N   | -->
+<!-- | PlantUML   | Y   |  | -->
+<!-- | mermaid    | Y   |        | -->
+<!-- | WaveDrom   | Y   |        | -->
+<!-- | Vega       | Y   |        | -->
+<!-- | Ditaa      | Y   |        | -->
+<!-- | Matplotlib | Y   |        | -->
+<!-- | Plotly     | Y   |        | -->
+<!-- | TikZ       | Y   |        | -->
+
+<!-- 在Markdown上写一个表格真是让人头疼的事情，写的不流畅还要担心格式。我为大家总结了以下三种方法，前两种大家或许司空见惯了，第三种是神器。。。 -->
+
+<!-- ## 一、md原生 -->
+
+<!-- ```markdown -->
+<!--     | 水果        | 价格    |  数量  | -->
+<!--     | --------   | -----:   | :----: | -->
+<!--     | 香蕉        | $1      |   5    | -->
+<!--     | 苹果        | $1      |   6    | -->
+<!--     | 草莓        | $1      |   7    | -->
+<!-- ``` -->
+
+<!-- 这种写法出来效果就是如下: -->
+
+<!-- | 水果 | 价格 | 数量 | -->
+<!-- | ---- | ---- | ---- | -->
+<!-- | 香蕉 | 1    | 5    | -->
+<!-- | 苹果 | 1    | 6    | -->
+<!-- | 草莓 | 1    | 7    | -->
+
+<!-- ```markdown -->
+<!-- dog | bird | cat -->
+<!-- ----|------|---- -->
+<!-- foo | foo  | foo -->
+<!-- bar | bar  | bar -->
+<!-- baz | baz  | baz -->
+<!-- ``` -->
+
+<!-- ## 二、html表格 -->
+
+<!-- ``` -->
+<!-- 亲测简书不可用 -->
+<!--     <table> -->
+<!--         <tr> -->
+<!--             <th>设备</th> -->
+<!--             <th>设备文件名</th> -->
+<!--             <th>文件描述符</th> -->
+<!--             <th>类型</th> -->
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <th>键盘</th> -->
+<!--             <th>/dev/stdin</th> -->
+<!--             <th>0</th> -->
+<!--             <th>标准输入</th> -->
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <th>显示器</th> -->
+<!--             <th>/dev/stdout</th> -->
+<!--             <th>1</th> -->
+<!--             <th>标准输出</th> -->
+<!--         </tr> -->
+<!--         <tr> -->
+<!--             <th>显示器</th> -->
+<!--             <th>/dev/stderr</th> -->
+<!--             <th>2</th> -->
+<!--             <th>标准错误输出</th> -->
+<!--         </tr> -->
+<!--     </table> -->
+<!-- ``` -->
+
+<!-- 这种写法出来效果就是如下: -->
+
+
+
+<!-- ![img](https:////upload-images.jianshu.io/upload_images/1521354-798cc04fef84b776.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/846/format/webp) -->
+
+<!-- md表格 -->
+
+<!-- ## 三、excel表格 -->
+
+<!-- 这个可以说是大杀器了，我们只需要下载一个东西就行了，这个是知乎用户`幻灰龙`写的东西，亲测有效 -->
+<!--  [下载链接](https://link.jianshu.com?t=https://link.zhihu.com/?target=http%3A//fanfeilong.github.io/exceltk0.0.4.7z) -->
+<!--  解压下来就能把excel变成md表格了 -->
+
+<!-- 在解压目录下，使用以下命令行，把xx的部分换成表格名称就行了（注意路径问题），windows就行了，不需要linux -->
+
+<!-- ``` -->
+<!-- exceltk用例 -->
+<!-- 整个表格：    exceltk.exe -t md -xls xxx.xls -->
+<!--               exceltk.exe -t md -xls xxx.xlsx -->
+<!-- 指定sheet： -->
+<!--               exceltk.exe -t md -xls xx.xls -sheet sheetname -->
+<!--               exceltk.exe -t md -xls xx.xlsx -sheet sheetnameexceltk -->
+<!-- 特性： -->
+<!--      转换Excel表格到MarkDown表格 -->
+<!--      支持Excel单元格带超链接 -->
+<!--      如果Excel里有合并的跨行单元格，在转换后的MarkDown里是分开的单元格，这是因为MarkDown本身不支持跨行单元格 -->
+<!--      如果Excel表格右侧有大量的空列，则会被自动裁剪，算法是根据前100行来检测并计算 -->
+<!-- ``` -->
+
+<!-- 这个方法真心方便了好多 -->
+
+<!-- **本人原创，希望大家喜欢一下哈，转载请注明出处** -->
+
+<!-- 作者：Gaolex -->
+
+<!-- 链接：https://www.jianshu.com/p/abaff828100d -->
+
+<!-- 來源：简书 -->
+
+<!-- 简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。 -->
+
+
+
+<!-- # 利用Markdown创建表格 -->
+
+<!-- 2017年02月15日 20:52:17 [tuxingchen6](https://me.csdn.net/tuxingchen6) 阅读数：78489 标签： [markdown](http://so.csdn.net/so/search/s.do?q=markdown&t=blog)[表格](http://so.csdn.net/so/search/s.do?q=%E8%A1%A8%E6%A0%BC&t=blog)[HTML](http://so.csdn.net/so/search/s.do?q=HTML&t=blog) -->
+
+
+
+<!-- Markdown作为一种轻量级书写/写作语言，并没有提供很好的排版、编辑等功能。因此，如果想要利用Markdown创建表格（特别是复杂表格），其实是一项不太轻松的事情。 -->
+<!-- 经过笔者在简书平台上的测试与其他若干帖子的表述，Markdown应是只提供了最简单的创建表格与内容对齐方式的功能。总结而言，有如下两种最为直观的创建表格方式： -->
+
+<!-- - 简单方式 -->
+
+<!-- > Name | Academy | score -->
+<!-- > \- | :-: | -: -->
+<!-- > Harry Potter | Gryffindor| 90 -->
+<!-- > Hermione Granger | Gryffindor | 100 -->
+<!-- > Draco Malfoy | Slytherin | 90 -->
+
+<!-- | Name             | Academy    | score | -->
+<!-- | ---------------- | ---------- | ----- | -->
+<!-- | Harry Potter     | Gryffindor | 90    | -->
+<!-- | Hermione Granger | Gryffindor | 100   | -->
+<!-- | Draco Malfoy     | Slytherin  | 90    | -->
+
+<!-- - 原生方式 -->
+
+<!-- > | Name | Academy | score | -->
+<!-- > | - | :-: | -: | -->
+<!-- > | Harry Potter | Gryffindor| 90 | -->
+<!-- > | Hermione Granger | Gryffindor | 100 | -->
+<!-- > | Draco Malfoy | Slytherin | 90 | -->
+
+<!-- | Name             | Academy    | score | -->
+<!-- | ---------------- | ---------- | ----- | -->
+<!-- | Harry Potter     | Gryffindor | 90    | -->
+<!-- | Hermione Granger | Gryffindor | 100   | -->
+<!-- | Draco Malfoy     | Slytherin  | 90    | -->
+
+<!-- 语法说明： -->
+<!-- \1. 不管是哪种方式，第一行为表头，第二行分隔表头和主体部分，第三行开始每一行代表一个表格行； -->
+<!-- \2. 列与列之间用管道符号 “|” 隔开，原生方式的表格每一行的两边也要有管道符。 -->
+<!-- \3. 可在第二行指定不同列单元格内容的对齐方式，默认为左对齐，在 “-” 右边加上 “:” 为右对齐，在 “-” 两侧同时加上 “:” 为居中对齐。 -->
+
+<!-- 这样傻瓜的表格创建方式十分符合Markdown简小精悍的语言气质，具有上手快、即学即用的优势。但傻瓜的定义方式显然不能满足很多处女座的要求，比如 -->
+<!-- 文章——“[Linux备忘录-Linux中文件/文件夹按照时间顺序升序/降序排列](http://www.jianshu.com/p/1e908fe0aa2d#)”的表格如下： -->
+
+<!-- > | 参数 |详细解释|备注| -->
+<!-- > | - | - | -->
+<!-- > | -l | use a long listing format |以长列表方式显示（显示出文件/文件夹详细信息） | -->
+<!-- > | -t | sort by modification time |按照修改时间排序（默认最近被修改的文件/文件夹排在最前面） | -->
+<!-- > |-r | reverse order while sorting |逆序排列| -->
+
+<!-- | 参数 | 详细解释                    | 备注                                                      | -->
+<!-- | ---- | --------------------------- | --------------------------------------------------------- | -->
+<!-- | -l   | use a long listing format   | 以长列表方式显示（显示出文件/文件夹详细信息）             | -->
+<!-- | -t   | sort by modification time   | 按照修改时间排序（默认最近被修改的文件/文件夹排在最前面） | -->
+<!-- | -r   | reverse order while sorting | 逆序排列                                                  | -->
+
+<!-- 单元格排列不齐整、第一列太窄而第三列略宽，如此不堪的视觉效果着实让强迫症患者们难以忍受。还好，利用HTML可以弥补Markdown这一缺陷，甚至可以在创建表格时其他诸多表现方面锦上添花。（遗憾的是笔者钟爱的简书对于HTML的支持并不全面，亲测尚不支持<table>；转战CSDN实属无奈之举，不过也要为CSDN的人性化点赞！） -->
+
+<!-- - <th>（表头）与<td>（主体内容）均支持“width = pixels”或“width = %”属性，可利用此属性调整表格单元格宽度。 -->
+
+<!-- | 参数 | 详细解释                    | 备注                                                      | -->
+<!-- | ---- | --------------------------- | --------------------------------------------------------- | -->
+<!-- | -l   | use a long listing format   | 以长列表方式显示（显示出文件/文件夹详细信息）             | -->
+<!-- | -t   | sort by modification time   | 按照修改时间排序（默认最近被修改的文件/文件夹排在最前面） | -->
+<!-- | -r   | reverse order while sorting | 逆序排列                                                  | -->
+
+<!-- - 通过设置属性“bgcolor=color”可以调整不同单元格的背景颜色。 -->
+
+<!-- | 参数 | 详细解释                    | 备注                                                      | -->
+<!-- | ---- | --------------------------- | --------------------------------------------------------- | -->
+<!-- | -l   | use a long listing format   | 以长列表方式显示（显示出文件/文件夹详细信息）             | -->
+<!-- | -t   | sort by modification time   | 按照修改时间排序（默认最近被修改的文件/文件夹排在最前面） | -->
+<!-- | -r   | reverse order while sorting | 逆序排列                                                  | -->
+
+<!-- ------ -->
+
+<!-- 更多花里胡哨的功能/属性笔者不再一一赘述，按照同样的思路，只要你可以想得到，HTML的<table>基本都可满足你的需求。（顺便安利一个不错的网站：[w3schools.com](https://www.w3schools.com/html/default.asp)） -->
+
+<!-- 源代码： -->
+
+<!-- ``` -->
+<!-- <table> -->
+<!--   <tr> -->
+<!--     <th width=10%, bgcolor=yellow >参数</th> -->
+<!--     <th width=40%, bgcolor=yellow>详细解释</th> -->
+<!--     <th width="50%", bgcolor=yellow>备注</th> -->
+<!--   </tr> -->
+<!--   <tr> -->
+<!--     <td bgcolor=#eeeeee> -l </td> -->
+<!--     <td> use a long listing format  </td> -->
+<!--     <td> 以长列表方式显示（显示出文件/文件夹详细信息）  </td> -->
+<!--   </tr> -->
+<!--   <tr> -->
+<!--     <td bgcolor=#00FF00>-t </td> -->
+<!--     <td> sort by modification time </td> -->
+<!--     <td> 按照修改时间排序（默认最近被修改的文件/文件夹排在最前面） </td> -->
+<!--   <tr> -->
+<!--     <td bgcolor=rgb(0,10,0)>-r </td> -->
+<!--     <td> reverse order while sorting </td> -->
+<!--     <td>  逆序排列 </td> -->
+<!--   </tr> -->
+<!-- </table> -->
+<!-- ``` -->
+
+<!-- ### 2.使用table标签 -->
+
+<!-- 上一个文章中《[markdown中怎么让内容换行](http://tianshimanbu.com/index.php/web-admin/markdown-br.html)》一文中已经介绍，其实markdown只是把特一些特殊的标签换成了HTML标签了而已，如果不是特殊标签则不被markdown解释器所转换，基于整个原理，咱们可以直接使用HTML标签中的table标签即可。 -->
+
+<!-- 上面的表格代码就可以使用： -->
+
+<!-- ``` -->
+<!-- <table> -->
+<!-- <thead> -->
+<!-- <tr> -->
+<!-- <th>Tables</th> -->
+<!-- <th style="text-align:center">Are</th> -->
+<!-- <th style="text-align:right">Cool</th> -->
+<!-- </tr> -->
+<!-- </thead> -->
+<!-- <tbody> -->
+<!-- <tr> -->
+<!-- <td>col 3 is</td> -->
+<!-- <td style="text-align:center">right-aligned</td> -->
+<!-- <td style="text-align:right">$1600</td> -->
+<!-- </tr> -->
+<!-- <tr> -->
+<!-- <td>col 2 is</td> -->
+<!-- <td style="text-align:center">centered</td> -->
+<!-- <td style="text-align:right">$12</td> -->
+<!-- </tr> -->
+<!-- <tr> -->
+<!-- <td>zebra stripes</td> -->
+<!-- <td style="text-align:center">are neat</td> -->
+<!-- <td style="text-align:right">$1</td> -->
+<!-- </tr> -->
+<!-- </tbody> -->
+<!-- </table> -->
+<!-- ``` -->
+
+<!-- ### 3.使用Tables Generator快速生成表格 -->
+
+<!-- Tables Generator 可以在线生成 LaTeX、HTML、Markdown 格式的表格代码，支持在表格中填充数据，修改字体/背景颜色，对齐方式等等。 -->
+
+<!-- 本文转载自：[【markdown技巧】- 快速生成表格（table）样式](http://tianshimanbu.com/index.php/default/markdown-table-style.html) -->
+
+<!-- https://github.com/jgm/pandoc/issues/3275 -->
+
+<!-- [@yang-small-fan](https://github.com/yang-small-fan) - I just opened the reference doc you attached to your comment, edited the "Table" style (setting "All Borders"), saved the reference doc, then tested the amended reference doc by passing a simple Markdown file through Pandoc. It worked fine for me, so I'm not sure where things aren't quite working out for you. -->
+
+<!-- Here's modified copy of your reference doc, a source markdown file (for testing purposes), and the docx output file in case they help you: -->
+
+<!-- - [yang-small-fan-custom-reference.docx](https://github.com/jgm/pandoc/files/1766688/yang-small-fan-custom-reference.docx) -->
+<!-- - [table.txt](https://github.com/jgm/pandoc/files/1766691/table.txt) -->
+<!-- - [table.docx](https://github.com/jgm/pandoc/files/1766692/table.docx) -->
+
+<!-- ``` -->
+<!-- pandoc table.txt -f markdown -t docx --reference-doc yang-small-fan-custom-reference.docx -o table.docx -->
+<!-- ``` -->
+
+<!-- I'm on Mac OS, so the process I went through to change the Table Style in MS Word was as follows: -->
+
+<!-- 1. Open the reference doc -->
+<!-- 2. Select (or click anywhere inside) the Table -->
+<!-- 3. Click the "*Table Design*" tab -->
+<!-- 4. Click the little down-arrow icon on the Quick Styles list *(which annoyingly only appears when you hover your mouse over the styles)* -->
+<!-- 5. Click "*Modify Table Style*" on the popup menu -->
+<!-- 6. Make style changes -->
+<!-- 7. Save the reference doc -->
+
+<!-- Here are some screenshots in case they help: -->
+
+<!-- [![screenshot_1140](https://user-images.githubusercontent.com/2323266/36782861-e5aae860-1cac-11e8-9353-fbaa03effa0e.png)](https://user-images.githubusercontent.com/2323266/36782861-e5aae860-1cac-11e8-9353-fbaa03effa0e.png) -->
+
+<!-- [![screenshot_1139](https://user-images.githubusercontent.com/2323266/36782866-ead08980-1cac-11e8-8cb5-fd67a0fb4a1b.png)](https://user-images.githubusercontent.com/2323266/36782866-ead08980-1cac-11e8-8cb5-fd67a0fb4a1b.png) -->
+
+<!-- # 第一章 章节 {#chapter} -->
+
+<!-- ## 章节层级结构 -->
+<!-- 编号的目的，主要是用于文档的引用、命名和文章层次就够的清晰。共有3个数字组成，第一个数字表示部分，第二和三个数字表示章，第四个表示节，第五个为小节。分章命名时一般采用前三位数字。如101第一部分第一章.md、204第二部分第4章等。 文档序号中节及以下层不用于命名，任务编号采用“3位数字-内容简要-作者姓名.md”文件命名方式。 -->
+
+<!-- |       |          |                            |      |                     | -->
+<!-- | ----- | -------- | -------------------------- | ---- | ------------------- | -->
+<!-- | 0     | 前置     |                            |      |                     | -->
+<!-- |       | 正文     | body                       |      |                     | -->
+<!-- | 1     | 第一部分 | # (PART)  第一部分{#p1, -} |      | # (PART) Part I {-} | -->
+<!-- | 101   | 第一章   | # 第一章 {#ch1}            |      | # chapter {#ID}     | -->
+<!-- | 1011  | 第一节   | ## 第一节{#1.1}            |      | ## section {#ID}    | -->
+<!-- | 10111 | 第一小节 | ### 第小一节{#1.1.1}       |      | ### subsection{#ID} | -->
+<!-- | 12    | 第二章   | # 第二章 {#ch1}            |      |                     | -->
+<!-- | 13    | 第三章   | # 第二章 {#ch1}            |      |                     | -->
+<!-- | 2     | 第二部分 | # 第二部分{#part2, -}      |      |                     | -->
+<!-- | 3     | 第三部分 | # 第三部分{#part3, -}      |      |                     | -->
+<!-- | 9     | 后置     | # 引用文献{#Ref, -}        |      |                     | -->
+<!-- ··## 章节交叉引用 -->
+
+<!-- 章节交叉引用的使用方法为`\ref(ID)`，ID即为章节设置中`# 111第一章{#ID}`中设置的ID。例如请参见第一章\ref(chapter)。 -->
+
+<!-- ## 章节自动编号 -->
+
+<!-- ### Vscode 扩展 -->
+
+<!-- 工具： vscode markdown makeindex 扩展 -->
+<!-- 使用： C-S-P make index -->
+<!-- 注意： #层级正确无断层 -->
+
+<!-- ### Latex -->
+
+<!-- ## 章节目录 -->
+
+<!-- ### [toc] -->
+
+<!-- 适用于vscode, 有道云笔记，为知笔记 -->
+<!-- # 流程图 -->
+<!-- 如何用markdown画流程图的案例，相应的流程图需要相应markdown软件的支持 -->
+<!-- ## mermaid -->
+<!-- 网站： http://knsv.github.io/mermaid/ -->
+<!-- github ： https://github.com/knsv/mermaid -->
+<!-- homebrew 安装： brew install node && npm install -g phantomjs && npm install -g mermaid -->
+
+<!-- ![](../../../../Pictures/2016-09-08-11-58-42-63497.jpg) -->
+
+<!-- ## flow -->
+<!-- flow.js -->
+
+<!-- <!-- -->
+<!-- ```flow -->
+<!-- st=>start: Start -->
+<!-- op=>operation: Your Operation -->
+<!-- cond=>condition: Yes or No? -->
+<!-- e=>end -->
+<!-- st->op->cond -->
+<!-- cond(yes)->e -->
+<!-- cond(no)->op -->
+<!-- ``` -->
+<!-- --> -->
+<!-- flow中严格注意字母后面空格等字符，否则不成功。 -->
+<!-- 【中文的问题】yes no替换成是否条件，还没有成功。 -->
+
+<!-- ```flow -->
+<!-- st=>start: 应急预案启动 -->
+<!-- op=>operation: 应急救援 -->
+<!-- cond=>condition: 宣布救援结束? -->
+<!-- e=>end: 应急响应终止 -->
+<!-- st->op->cond -->
+<!-- cond(yes)->e -->
+<!-- cond(no)->op -->
+<!-- ``` -->
+<!-- flow例二 -->
+
+<!-- ```flow -->
+<!-- st=>start: Start|past:>http://www.google.com[blank] -->
+<!-- e=>end: End:>http://www.google.com -->
+<!-- op1=>operation: get_hotel_ids|past -->
+<!-- op2=>operation: get_proxy|current -->
+<!-- sub1=>subroutine: get_proxy|current -->
+<!-- op3=>operation: save_comment|current -->
+<!-- op4=>operation: set_sentiment|current -->
+<!-- op5=>operation: set_record|current -->
+<!-- cond1=>condition: ids_remain空? -->
+<!-- cond2=>condition: proxy_list空? -->
+<!-- cond3=>condition: ids_got空? -->
+<!-- cond4=>condition: 爬取成功?? -->
+<!-- cond5=>condition: ids_remain空? -->
+<!-- io1=>inputoutput: ids-remain -->
+<!-- io2=>inputoutput: proxy_list -->
+<!-- io3=>inputoutput: ids-got -->
+<!-- st->op1(right)->io1->cond1 -->
+<!-- cond1(yes)->sub1->io2->cond2 -->
+<!-- cond2(no)->op3 -->
+<!-- cond2(yes)->sub1 -->
+<!-- cond1(no)->op3->cond4 -->
+<!-- cond4(yes)->io3->cond3 -->
+<!-- cond4(no)->io1 -->
+<!-- cond3(no)->op4 -->
+<!-- cond3(yes, right)->cond5 -->
+<!-- cond5(yes)->op5 -->
+<!-- cond5(no)->cond3 -->
+<!-- op5->e -->
+<!-- ``` -->
+<!-- 例子三 -->
+
+<!-- ```flow -->
+<!-- st=>start: 开始 -->
+<!-- e=>end: 结束 -->
+<!-- op=>operation: 操作 -->
+<!-- sub=>subroutine: 子程序 -->
+<!-- cond=>condition: 是或者不是? -->
+<!-- io=>inputoutput: 输出 -->
+<!-- st(right)->op->cond -->
+<!-- cond(yes)->io(right)->e -->
+<!-- cond(no)->sub(right)->op -->
+<!-- ``` -->
+
+
+<!-- ## graphviz -->
+
+<!-- 需要markdown preview enhanced支持 -->
+<!-- ### dot -->
+<!-- dot的语法请参考 -->
+
+<!-- #### dot基本语法简介 -->
+
+
+<!-- ```dot -->
+<!-- digraph G{ -->
+<!--     node[shape="ellipse", color="red", fillcolor="yellow"]; -->
+<!--     A[label="Hello, 同学"]; -->
+<!--     node[shape="retangle", color="red", fillcolor="yellow"]; -->
+<!--     B[label="加入我们协会吧？"]; -->
+<!--     node[shape="circle", color="green", fillcolor="yellow", width=.8]; -->
+<!--     C[label="好啊"]; -->
+<!--     D[label="滚"]; -->
+<!--     A -> B; -->
+<!--     B -> C; -->
+<!--     B -> D; -->
+<!-- } -->
+<!-- ``` -->
+<!-- # 甘特图 -->
+<!-- ### 支持的软件 -->
+<!-- - Markdown preview enhanced插件： VSCODE， ATOM，Typora:需要声明```mermaid ``` -->
+<!-- - 有道云笔记:不需要声明 ``` ``` -->
+
+
+
+
+
+
+
+<!-- 1. -->
+
+<!-- 2. [横向流程图源码格式：](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=8) -->
+
+<!--    [```mermaid](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=8) -->
+
+<!--    [graph LR](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=8) -->
+
+<!--    [A[方形\] -->B(圆角)](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=8) -->
+
+<!--    [    B --> C{条件a}](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=8) -->
+
+<!--    [    C -->|a=1| D[结果1\]](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=8) -->
+
+<!--    [    C -->|a=2| E[结果2\]](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=8) -->
+
+<!--    [    F[横向流程图\]](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=8) -->
+
+<!--    [```](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=8) -->
+
+<!--    [![typora画流程图、时序图(顺序图)、甘特图](https://imgsa.baidu.com/exp/w=500/sign=2466ec608935e5dd902ca5df46c7a7f5/bd3eb13533fa828bcdba91d1f11f4134970a5a62.jpg)](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=1) -->
+
+<!-- 3. -->
+<!-- ```mermaid -->
+<!-- graph TB -->
+<!--     id1(圆角矩形)--普通线-->id2[矩形] -->
+<!--     subgraph 子图表 -->
+<!--         id2==粗线==>id3{菱形} -->
+<!--         id3-.虚线.->id4>右向旗帜] -->
+<!--         id3--无箭头---id5((圆形)) -->
+<!--     end -->
+<!-- ``` -->
+
+<!-- ``` -->
+<!-- graph TB -->
+<!--     id1(圆角矩形)--普通线-->id2[矩形] -->
+<!--     subgraph 子图表 -->
+<!--         id2==粗线==>id3{菱形} -->
+<!--         id3-.虚线.->id4>右向旗帜] -->
+<!--         id3--无箭头---id5((圆形)) -->
+<!--     end -->
+<!-- ``` -->
+
+
+<!-- ```mermaid.js -->
+<!-- graph TB -->
+<!--     id1(圆角矩形)--普通线-->id2[矩形] -->
+<!--     subgraph 子图表 -->
+<!--         id2==粗线==>id3{菱形} -->
+<!--         id3-.虚线.->id4>右向旗帜] -->
+<!--         id3--无箭头---id5((圆形)) -->
+<!--     end -->
+<!--    竖向流程图源码格式： -->
+
+<!--    ```mermaid -->
+
+<!--    graph TD -->
+
+<!--    A[方形] -->B(圆角) -->
+
+<!--        B --> C{条件a} -->
+
+<!--        C -->|a=1| D[结果1] -->
+
+<!--        C -->|a=2| E[结果2] -->
+
+<!--        F[竖向流程图] -->
+
+<!--    ``` -->
+
+<!--    [![typora画流程图、时序图(顺序图)、甘特图](https://imgsa.baidu.com/exp/w=500/sign=b77421d7a16eddc426e7b4fb09dbb6a2/eac4b74543a98226767c24158682b9014a90eb47.jpg)](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=2) -->
+
+<!-- 4. -->
+
+<!--    标准流程图源码格式： -->
+
+<!--    \```flow -->
+
+<!--    st=>start: 开始框 -->
+
+<!--    op=>operation: 处理框 -->
+
+<!--    cond=>condition: 判断框(是或否?) -->
+
+<!--    sub1=>subroutine: 子流程 -->
+
+<!--    io=>inputoutput: 输入输出框 -->
+
+<!--    e=>end: 结束框 -->
+
+
+
+<!--    st->op->cond -->
+
+<!--    cond(yes)->io->e -->
+
+<!--    cond(no)->sub1(right)->op -->
+
+<!--    \``` -->
+
+<!--    [![typora画流程图、时序图(顺序图)、甘特图](https://imgsa.baidu.com/exp/w=500/sign=8ff1d0ed7ac6a7efb926a826cdfbafe9/a71ea8d3fd1f4134ffea704c291f95cad1c85e26.jpg)](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=3) -->
+
+<!-- 5. -->
+
+<!--    标准流程图源码格式（横向）： -->
+
+<!--    \```flow -->
+
+<!--    st=>start: 开始框 -->
+
+<!--    op=>operation: 处理框 -->
+
+<!--    cond=>condition: 判断框(是或否?) -->
+
+<!--    sub1=>subroutine: 子流程 -->
+
+<!--    io=>inputoutput: 输入输出框 -->
+
+<!--    e=>end: 结束框 -->
+
+
+
+<!--    st(right)->op(right)->cond -->
+
+<!--    cond(yes)->io(bottom)->e -->
+
+<!--    cond(no)->sub1(right)->op -->
+
+<!--    \``` -->
+
+<!--    [![typora画流程图、时序图(顺序图)、甘特图](https://imgsa.baidu.com/exp/w=500/sign=d901f51be7c4b7453494b716fffc1e78/03087bf40ad162d92187112e1ddfa9ec8a13cd93.jpg)](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=4) -->
+
+<!-- 6. -->
+
+<!--    UML时序图源码样例： -->
+
+<!--    \```sequence -->
+
+<!--    对象A->对象B: 对象B你好吗?（请求） -->
+
+<!--    Note right of 对象B: 对象B的描述 -->
+
+<!--    Note left of 对象A: 对象A的描述(提示) -->
+
+<!--    对象B-->对象A: 我很好(响应) -->
+
+<!--    对象A->对象B: 你真的好吗？ -->
+
+<!--    \``` -->
+
+<!--    [![typora画流程图、时序图(顺序图)、甘特图](https://imgsa.baidu.com/exp/w=500/sign=1acff8b5dca20cf44690fedf46094b0c/3b292df5e0fe9925ff7c166238a85edf8db1718b.jpg)](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=5) -->
+
+<!-- 7. -->
+
+<!--    UML时序图源码复杂样例： -->
+
+<!--    \```sequence -->
+
+<!--    Title: 标题：复杂使用 -->
+
+<!--    对象A->对象B: 对象B你好吗?（请求） -->
+
+<!--    Note right of 对象B: 对象B的描述 -->
+
+<!--    Note left of 对象A: 对象A的描述(提示) -->
+
+<!--    对象B-->对象A: 我很好(响应) -->
+
+<!--    对象B->小三: 你好吗 -->
+
+<!--    小三-->>对象A: 对象B找我了 -->
+
+<!--    对象A->对象B: 你真的好吗？ -->
+
+<!--    Note over 小三,对象B: 我们是朋友 -->
+
+<!--    participant C -->
+
+<!--    Note right of C: 没人陪我玩 -->
+
+<!--    \``` -->
+
+<!--    [![typora画流程图、时序图(顺序图)、甘特图](https://imgsa.baidu.com/exp/w=500/sign=df59a9dfeb1190ef01fb92dffe1b9df7/32fa828ba61ea8d3a7730d369b0a304e251f58aa.jpg)](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=6) -->
+
+<!-- 8. -->
+
+<!--    UML标准时序图样例： -->
+
+<!--    \```mermaid -->
+
+<!--    %% 时序图例子,-> 直线，-->虚线，->>实线箭头 -->
+
+<!--      sequenceDiagram -->
+
+<!--        participant 张三 -->
+
+<!--       participant 李四 -->
+
+<!--       张三->王五: 王五你好吗？ -->
+
+<!--       loop 健康检查 -->
+
+<!--           王五->王五: 与疾病战斗 -->
+
+<!--      end -->
+
+<!--       Note right of 王五: 合理 食物 <br/>看医生... -->
+
+<!--       李四-->>张三: 很好! -->
+
+<!--       王五->李四: 你怎么样? -->
+
+<!--       李四-->王五: 很好! -->
+
+<!--    \``` -->
+
+<!--    [![typora画流程图、时序图(顺序图)、甘特图](https://imgsa.baidu.com/exp/w=500/sign=c028fc1be7c4b7453494b716fffc1e78/03087bf40ad162d938ae182e1ddfa9ec8a13cd44.jpg)](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=7) -->
+
+<!-- 9. -->
+
+<!--    甘特图样例： -->
+
+<!--    \```mermaid -->
+
+<!--    %% 语法示例 -->
+
+<!--           gantt -->
+
+<!--           dateFormat  YYYY-MM-DD -->
+
+<!--           title 软件开发甘特图 -->
+
+
+
+<!--           section 设计 -->
+
+<!--           需求                      :done,    des1, 2014-01-06,2014-01-08 -->
+
+<!--           原型                      :active,  des2, 2014-01-09, 3d -->
+
+<!--           UI设计                     :         des3, after des2, 5d -->
+
+<!--       	未来任务                     :         des4, after des3, 5d -->
+
+
+
+<!--            section 开发 -->
+
+<!--            学习准备理解需求                      :crit, done, 2014-01-06,24h -->
+
+<!--            设计框架                             :crit, done, after des2, 2d -->
+
+<!--            开发                                 :crit, active, 3d -->
+
+<!--           未来任务                              :crit, 5d -->
+
+<!--           耍                                   :2d -->
+
+
+
+<!--            section 测试 -->
+
+<!--           功能测试                              :active, a1, after des3, 3d -->
+
+<!--            压力测试                               :after a1  , 20h -->
+
+<!--            测试报告                               : 48h -->
+
+<!--    \``` -->
+
+<!--    [![typora画流程图、时序图(顺序图)、甘特图](https://imgsa.baidu.com/exp/w=500/sign=f971363a00d79123e0e094749d355917/fcfaaf51f3deb48fbfa5c7ecfc1f3a292df57837.jpg)](http://jingyan.baidu.com/album/48b558e3035d9a7f38c09aeb.html?picindex=8) -->
+<!-- 个人分类： [R手册](https://blog.csdn.net/qq_41518277/article/category/7630838) -->
+
+
+
+
+
+<!-- ### 目录 -->
+
+<!-- - [R Markdown](https://blog.csdn.net/qq_41518277/article/details/80149789#R_Markdown_8) -->
+
+<!-- - - [Overview](https://blog.csdn.net/qq_41518277/article/details/80149789#Overview_11) -->
+
+<!--   - [Rmd Structure](https://blog.csdn.net/qq_41518277/article/details/80149789#Rmd_Structure_30) -->
+
+<!--   - - [YAML Header](https://blog.csdn.net/qq_41518277/article/details/80149789#YAML_Header_38) -->
+<!--     - [Text](https://blog.csdn.net/qq_41518277/article/details/80149789#Text_99) -->
+<!--     - [Embed code with knitr syntax](https://blog.csdn.net/qq_41518277/article/details/80149789#Embed_code_with_knitr_syntax_104) -->
+<!--     - [表格美化](https://blog.csdn.net/qq_41518277/article/details/80149789#_140) -->
+
+<!--   - [render(渲染)](https://blog.csdn.net/qq_41518277/article/details/80149789#render_153) -->
+
+
+
+<!-- ------ -->
+
+<!-- # R Markdown -->
+
+<!-- R Markdown是通过R语言制作动态文档的文件格式. -->
+
+<!-- ## Overview -->
+
+<!-- **Installation** -->
+
+<!-- - 如果你在RStudio中工作，那么你可以简单地安装[当前版本](http://www.rstudio.com/ide/download/preview)的RStudio（包括rmarkdown包和pandoc）。 -->
+<!-- - 如果您想在RStudio之外使用rmarkdown软件包 -->
+<!--   `install.packages("rmarkdown")` -->
+
+<!-- **Workflow** -->
+
+<!-- 1. **编辑R Markdown文件（Rmd，纯文本）**： -->
+<!--    Rstudio菜单 File ▶ New File ▶ R Markdown -->
+<!-- 2. **渲染**: use **knitr button** or **render()** to knit -->
+<!-- 3. **发布到网站（可选）** -->
+<!-- 4. **重复使用** -->
+
+<!-- ## Rmd Structure -->
+
+<!-- R Markdown主要由三部分组成： -->
+
+<!-- 1. YAML标头：文档开始部分，由`---`包围的`key:value`对 -->
+<!-- 2. Text：主要由Markdown语法书写的文本 -->
+<!-- 3. Knitr 处理 R code：Begins with ` ```{r} code ```` -->
+
+<!-- ### YAML Header -->
+
+<!-- - **Parameters** -->
+
+<!-- 1. Add parameters: 在YAML Header中定义 -->
+<!-- 2. Call parameters: 在代码块中以`params$<name>`格式引用 -->
+<!-- 3. Set parameters: Knit或者render() 时重设参数 -->
+
+<!-- ```markdown -->
+<!-- # YAML Header -->
+<!-- --- -->
+<!-- params: -->
+<!--  n: 100 -->
+<!--  d: !r Sys.Date() -->
+<!-- --- -->
+<!-- # R Markdown文本 -->
+<!-- Today’s date is `r params$d` -->
+<!-- # 渲染 -->
+<!-- render("doc.Rmd", params = list(n = 1,d = as.Date("2015-01-01")) -->
+<!-- 12345678910 -->
+<!-- ``` -->
+
+<!-- - Set **render options** with YAML -->
+
+<!-- ```markdown -->
+<!-- --- -->
+<!-- output: html_document -->
+<!-- --- -->
+<!-- # Body -->
+<!-- 1234 -->
+<!-- ``` -->
+
+<!-- | output value                   | creates                          | -->
+<!-- | ------------------------------ | -------------------------------- | -->
+<!-- | html_document                  | html                             | -->
+<!-- | pdf_document                   | pdf (requires Tex )              | -->
+<!-- | word_document                  | Microsof Word (.docx)            | -->
+<!-- | odt_document                   | OpenDocument Text                | -->
+<!-- | rtf_document                   | Rich Text Format                 | -->
+<!-- | md_document                    | Markdown                         | -->
+<!-- | github_document                | Github compatible markdown       | -->
+<!-- | ioslides_presentation ioslides | HTML slides                      | -->
+<!-- | slidy_presentation             | slidy HTML slides                | -->
+<!-- | beamer_presentation            | Beamer pdf slides (requires Tex) | -->
+
+<!-- **ouput** 也可以设置子选项，详情请查看官网： -->
+
+<!-- ```markdown -->
+<!-- --- -->
+<!-- output: -->
+<!--   html_document: -->
+<!--     code_folding: hide -->
+<!--     toc: TRUE -->
+<!--     theme: united -->
+<!--     highlight: zenburn -->
+<!-- --- -->
+<!-- # Body -->
+<!-- 123456789 -->
+<!-- ``` -->
+
+<!-- - **初始文档信息** ：title, author, and date information,etc -->
+
+<!-- ```markdown -->
+<!-- --- -->
+<!-- title: "Sample Document" -->
+<!-- author: "Hadley Wickham" -->
+<!-- --- -->
+<!-- 1234 -->
+<!-- ``` -->
+
+<!-- ### Text -->
+
+<!-- 更多语法请参考 [Markdown编辑器推荐和语法(StackEdit)](https://blog.csdn.net/qq_41518277/article/details/80149002) -->
+
+<!-- ### Embed code with knitr syntax -->
+
+<!-- **Inline code** -->
+<!-- 以 ``r <code>``格式插入，将以文本的格式显示 -->
+
+<!-- **Code chunks** -->
+<!-- 以` ```{r options} and ````围绕的一行或多行代码 -->
+
+<!-- | chunks options        | 说明                                                         | -->
+<!-- | --------------------- | ------------------------------------------------------------ | -->
+<!-- | cache                 | 为knits缓存结果 (default = FALSE)                            | -->
+<!-- | cache.path            | 缓存结果的保存路径 (default = “cache/”)                      | -->
+<!-- | child                 | file(s) to knit and then include (default =NULL)             | -->
+<!-- | collapse              | 把所有的输出汇聚到单个块中(default = FALSE)                  | -->
+<!-- | comment               | 结果的每一行加前缀(default = ‘##’)                           | -->
+<!-- | dependson             | chunk dependencies for caching (default = NULL)              | -->
+<!-- | echo                  | 是否在输出中包含源代码                                       | -->
+<!-- | engine                | 代码语言 (default =‘R’)                                      | -->
+<!-- | error                 | 是否在输出中包含错误信息（TRUE或FALSE）                      | -->
+<!-- | eval                  | 在块中运行代码(default = TRUE)                               | -->
+<!-- | fig.align             | ‘lef’, ‘right’, or ‘center’ (default = ‘default’)            | -->
+<!-- | fig.cap               | 图片标签 (default= NULL)                                     | -->
+<!-- | fig.height, fig.width | 图片宽度和高度（英寸）                                       | -->
+<!-- | highlight             | 高亮显示源码 (default = TRUE)                                | -->
+<!-- | include               | 运行后是否在文档中显示块 (default = TRUE)                    | -->
+<!-- | message               | 是否在输出中包含参考的信息（TRUE或FALSE）                    | -->
+<!-- | results               | 是否输出原生结果 (default = ‘markup’){‘markup’,‘asis’,‘hide’,‘hold’} | -->
+<!-- | warning               | 是否在输出中包含警告(default = TRUE)                         | -->
+
+<!-- **Global options** -->
+<!-- 用`knitr::opts_chunk$set()` 等函数设置 -->
+
+<!-- ``` -->
+<!-- knitr::opts_chunk$set(echo = TRUE) -->
+<!-- 1 -->
+<!-- ``` -->
+
+<!-- ### 表格美化 -->
+
+<!-- ``` -->
+<!-- data <- faithful[1:4, ] -->
+
+<!-- knitr::kable(data, caption = "Table with kable”) -->
+<!-- print(xtable::xtable(data, caption = "Table with xtable”), -->
+<!--    type = "html", html.table.attributes = "border=0")) -->
+<!-- stargazer::stargazer(data, type = "html", title = "Table -->
+<!--    with stargazer") -->
+<!-- 1234567 -->
+<!-- ``` -->
+
+<!-- ## render(渲染) -->
+
+<!-- `render()` 或`knitr button` -->
+<!-- 运行时先用Knitr将Rmd文件中的代码块编译成md文件 -->
+<!-- 然后再用pandoc将md文件转化为HTML, PDF或 Word等最终文档(the default is HTML) -->
+
+<!-- ```r -->
+<!-- render("input.Rmd") -->
+<!-- render("input.md") -->
+<!-- 12 -->
+<!-- ``` -->
+
+<!-- > **render函数主要参数：** -->
+<!-- > input : file to render -->
+<!-- > output_format: 输出格式 -->
+<!-- > output_options: 要渲染的选项list (in YAML) -->
+<!-- > output_file, output_dir : 输出文件名和路径 -->
+<!-- > params： list of params to use -->
+<!-- > envir : environment to evaluate code chunks in -->
+<!-- > encoding - of input file -->
+<!-- > -->
+<!-- > **Output Formats:** str or Output Format Function -->
+<!-- > all: 输出全部格式 -->
+<!-- > *Output Format Functions：* -->
+<!-- > html_document -->
+<!-- > pdf_document -->
+<!-- > word_document -->
+<!-- > md_document -->
+<!-- > beamer_presentation -->
+<!-- > ioslides_presentation -->
+<!-- > slidy_presentation -->
+
+<!-- ```r -->
+<!-- render("input.Rmd", html_document(toc = TRUE)) -->
+<!-- render("input.Rmd", pdf_document(latex_engine = "lualatex")) -->
+<!-- render("input.Rmd", beamer_presentation(incremental = TRUE)) -->
+<!-- ``` -->
+
+<!-- # R Markdown 生成 PDF 时的中文识别问题 -->
+
+<!-- [转载](javascript:;)2016-04-26 23:39:13 -->
+
+<!--  玩了一晚上 R Markdown，遇到一些问题，心血来潮，就此一记，仅供参考。 -->
+
+<!-- # 一、R Markdown 与 Latex 版本选择 -->
+
+<!-- 现今版本的 RStudio 都可以直接编译 Latex 生成 pdf 了，只需要安装对应平台下的tex即可。 -->
+
+<!-- [![img](http://s15.sinaimg.cn/mw690/003eAlXOgy71dQ0dOhwde)](http://photo.blog.sina.com.cn/showpic.html#blogid=&url=http://album.sina.com.cn/pic/003eAlXOgy71dQ0dOhwde)各个系统平台下对应的tex软件 -->
+
+<!-- 我是直接到 http://www.ctex.org/HomePage 下载了完整版的ctex套装安装。有了tex就可以直接在R Markdown中直接编译生成PDF了。当然，要先把该装的package都装上了。 -->
+
+<!-- # 二、R Markdown 与 Latex 中文识别问题 -->
+
+<!-- R Markdown在生成pdf时，中文的识别上常常会出现问题，即无法正常显示中文，有乱码。具体来说有以下两个问题： -->
+
+<!-- （一）在正文中无法识别中文 -->
+
+<!-- （二）在图片中无法识别中文 -->
+
+<!-- ## -->
+
+<!-- ## 解决办法： -->
+
+<!-- **步骤一：** -->
+
+<!-- 在同一路径下创建一个tex文本文件，并以 **UTF-8** 的编码形式保存，如： -->
+
+<!-- \usepackage{xeCJK} -->
+
+<!-- \setCJKmainfont{宋体}  % 字体可以更换 -->
+
+<!-- \setmainfont{Georgia} % 設定英文字型 -->
+
+<!-- \setromanfont{Georgia} % 字型 -->
+
+<!-- \setmonofont{Courier New} -->
+
+<!-- 在这里，我们将其命名为header.tex 。 -->
+
+<!-- **\*步骤一 完。*** -->
+
+<!-- ----------------------------------------------------------------------------------------- -->
+
+<!-- **\*步骤二：*** -->
+
+<!-- 在 R Markdown 中，于题头将tex的编译方式更改为xelatex，并引入header.tex，如： -->
+
+<!-- \--- -->
+
+<!-- title: "啊哈哈哈" -->
+
+<!-- author: "南方小和尚" -->
+
+<!-- date: "2016年4月26日" -->
+
+<!-- outputs: -->
+
+<!--     pdf_document: -->
+
+<!--         includes: -->
+
+<!--           in_header: header.tex -->
+
+<!--         latex_engine: xelatex -->
+
+<!-- \--- -->
+
+<!-- 注意： -->
+
+<!-- \1. header.tex和编辑的Rmd文件要放在同一路径下。 -->
+
+<!-- \2. windows下header.tex和编辑的Rmd文件都一定要保存成 **UTF-8** 格式编码，否则后面编译PDF通不过。将其放在与编辑的Rmd文档同一个文件夹下，然后用includes字段把它插入模板中，用xelatex作为生成PDF的引擎。此时问题（一）应该可以完美解决了。 -->
+
+<!-- **\*步骤二 完。*** -->
+
+<!-- <!-- ----------------------------------------------------------------------------------------- --> -->
+
+<!-- <!-- **步骤三：** --> -->
+
+<!-- <!-- 要解决问题（二）还需要装一个包“showtext”。然后，用showtext.begin()和showtext.end()将含有汉字的图片生成代码括起来就行，如： --> -->
+
+<!-- <!-- ```{r fig.showtext=TRUE,echo=FALSE} --> -->
+
+<!-- <!--  showtext.begin() --> -->
+
+<!-- <!-- plot(cars,main="中文issue") --> -->
+
+<!-- <!-- showtext.end() --> -->
+
+<!-- <!-- \``` --> -->
+
+<!-- 这样就可以实现中英文混排了。注意，选项 **fig.showtext=TRUE** 必填，否则仍然不能正常显示中文。 -->
+
+<!-- **\*步骤三 完。*** -->
+
+<!-- font color= green> ***Local* Branch: Green**   </font> -->
+
+<!-- <font color= blue> ***Remote* Fork: Blue**   </font> -->
+
+<!-- <font color= red>  **Remote *Origin*: Red**  </font> -->
+
+<!-- # git -->
+
+<!-- ##   <font color= green>Local 本地设置</font> -->
+<!-- ### git 常用信息 -->
+
+<!-- git config --global user.name "username" -->
+
+<!-- git config --global user.email "email@xx.com" -->
+
+<!-- ### ssh 生成 -->
+
+<!-- #### Windows -->
+
+<!-- #### Mac -->
+
+<!-- #### Linux -->
+
+<!-- <!-- ```sh --> -->
+<!-- <!-- ssh-kegne --> -->
+<!-- <!-- cat ~/.ssh/*.pub --> -->
+<!-- <!-- ``` --> -->
+
+
+<!-- ##   <font color= red>Origin 远端编辑</font> -->
+<!-- ### Create -->
+
+
+
+<!-- ### Fork -->
+<!-- Fork -->
+
+<!-- ### Clone -->
+<!-- ```sh -->
+<!-- mkdir gitee/xrlab -->
+<!-- cd xrlab -->
+<!-- git clone git@gitee.com:rla/md.git -->
+<!-- ``` -->
+<!-- ##   <font color= green>Local 本地编辑</font> -->
+<!-- ### Editing -->
+<!-- ### Add -->
+<!-- ### Commit -->
+<!-- ### Push -->
+<!-- ### Branch -->
+<!-- ##   <font color= blue>remote 远端编辑</font> -->
+<!-- ### Pull request -->
+```
+# 第一部分 Markdown
+## 本书目标
+* 一本介绍git的markdown书
+* 一本介绍防灾减灾的markdown书
+* 一本供XRLAB实验室使用的markdown参考书
+  
+# 前言 {-}
+互联网大数据时代，大家都开始将笔记记录在云端，你是否在记录笔记的时候还在选中 =》调整格式 =》调整段落；好吧，你OUT了，MarkDown是一种能快速规范格式的语法，只要几个小小的标识符即可飞快的完成格式化笔记，而且支持各类浏览器直接阅读。
+在每个CODE项目中，都会标配一个文件叫readme.md的文件，来说明程序是干什么的。
+
+# 第一章 什么是markdown (WHAT)
+本章主要让大家了解 Markdown 是什么。
+Markdown 是目前互联网上最流行的写作语言，它使用一些简单的符号（* / ` > [] () #）来标记文本格式，其简洁的语法、优美的格式以及强大的软件支持深受广大网友的喜爱。
+## 定义
+> 维基百科上对 Markdown 的描述：
+” Markdown 是一种轻量级标记语言，创始人是约翰·格鲁伯（John Gruber）（[博客](https://daringfireball.net/)）。它允许人们 “使用易读易写的纯文本格式编写文档，然后转换成有效的 HTML 文档。”
+
+## 学习曲线
+
+大家千万不要被一些专业术语唬住了，其实 Markdown 之所以流行，最主要的原因就是因为它的学习门槛很低，你可能只需花几分钟就可以入门了。**学习曲线非常平缓，学习起来极其友好。**
+
+## 发展历史
+
+## 目前现状
+
+- 网页方面
+- 文档方面
+- 
+
+
+# 第二章 为什么学用Markdown (WHY)
+> 为什么要用 Markdown？
+回想一下我们在写作的时候会遇到什么样的问题？
+
+* 软件不会用：Word 应该是大家写作时最常用的软件，每当打开一个 Word 文档，速度慢先不说，光是复杂繁多的功能就已经足够让你眼花缭乱了，如果你不是专业的编辑，相信绝大部分功能你是用不到的。消除浪费，应该是现代互联网时代大家最先要学会的事情。
+
+* 软件不兼容：这个想必是大家最痛苦的事情，我用的 Word 版本是 2016，你用的是 2003，两人互传资料，一打开格式全乱了。
+
+*格式不兼容：从网上复制一段文字到 Word 文档中，然后格式全乱了。反之，从 Word 文档中复制一段文字到网上，格式也全乱了，又需要重新调整。
+排版太费时间：工具通常是这样，提供的功能越多，我们想的也越多，遇到的问题也就会越多。写作时总想着换种字体会不会好看一些，换个颜色试试，行高要不要调整一下，行距是不是太大了，用一下这个功能怎么样等等，时间就是这样一点点被浪费的。罗振宇在 2016 年 “时间的朋友”跨年演讲中提到过一个观点我非常认同，他说：”当我需要一个服务的时候，不要给我太多选择，请直接告诉我什么是最好的，我要你的最佳方案”。
+难以团队协作：如果一个项目需要多人共同参与，比如共同翻译一本书，你可能需要版本管理、相互 Review、开放试读、开源、自出版等等，这些使用 Word 是无法满足需求的。也许你说可以使用 Google Doc，但前提是没那么多人会科学上网。
+
+Markdown 如何解决这些问题的呢？
+
+- 语法简单： Markdown 的语法是一些简单而且常用的标记符号，任何人只要花几分钟就能学会；
+- 兼容性强： Markdown 是兼容性非常强的纯文本内容，可以使用任何编辑器打开，格式都不会乱；
+- 导出方便： Markdown 可以导出 PDF、Word、HTML、Epub、LaTeX 等文件格式；
+- 专注内容： 使用 Markdown 写作再也不用纠结排版，其简洁优雅的格式会让你沉浸到写作的乐趣之中；
+团队协作： Github、Gitlab、Gitbook 都支持 Markdown，团队协作再也不是问题了；
+本文节选自 《Markdown 实用指南》
+
+什么时候不合适用 Markdown 呢？
+
+需要复杂排版的时候，比如纸版图书编辑就不太适合用 Markdown。我的做法是从 Markdown 导出 Word 文档，然后交给编辑。
+需要复杂表格的时候，因为 Markdown 对表格的支持太简单了。
+需要调整图片大小或直接贴本地图片的时候。
+Markdown 怎么用？
+先熟悉 Markdown 语法，再学会使用 Markdown 工具。请记住，语法是一切的基础，熟悉了语法以后，使用什么工具都可以，好用的工具只是让效率更高而已。
+
+Markdown 语法分为：标准语法和扩展语法。
+
+标准语法适用于所有 Markdown 工具，扩展语法可能每个工具都不一样。
+
+为什么会有扩展语法呢？
+
+由于 Markdown 本身的功能有限，一些特定的需求和场景无法被满足，因此产生了许多第三方的扩展语法。根据不同的需求和场景， Markdown 被扩展了很多功能，比如待办事项（任务列表）、代码高亮。
+
+比较流行的扩展语法是 Github 风格的 Markdown：GitHub Flavored Markdown，毕竟全球最大的程序员『交友』网站。
+
+正是由于 Markdown 第三方扩展语法太多，存在一定程序的碎片化，因此有一些机构和公司试图对 Markdown 语法进行标准化，这个可以参考 CommonMark 。
+
+## Markdown 语法
+
+
+
+
+
+
+
+
+<!-- Markdown 举例 -->
+
+# 第二部分 RMarkdown

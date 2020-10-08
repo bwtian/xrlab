@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.RProj
+backup
+cv
+public
+config.toml
+deploypublic.sh
+

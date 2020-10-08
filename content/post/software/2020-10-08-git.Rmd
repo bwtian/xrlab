@@ -1,0 +1,43 @@
+---
+title: 【软件】git
+author: '田兵伟'
+date: '`r Sys.Date()`'
+slug: git
+categories: []
+tags: []
+---
+
+# git基本使用
+## git 起步
+### git云端注册流程
+
+### git本地基本设置
+本机打开git bash 输入以下命令
+
+```{bash eval=FALSE}
+git config --global user.name YOURNAME  # "你的名字或昵称"
+git config --global user.email EMAIL    # "你的邮箱"
+```
+### git本地仓库和云端仓库联通
+
+- 在云端创建一个项目
+
+
+
+
+### 将本地文件夹上传到github
+
+```{bash eval=FALSE}
+cd ./folder/
+mkdir YourProjName
+cd YourProjName
+git init  # 创建.git 文件夹
+
+git remote add origin https://github.com/YourGithubName/YourProjName.git
+
+
+
+```
+
+- origin：指远程*remote*云端仓库,查询信息使用*`git remote -v`* 命令
+

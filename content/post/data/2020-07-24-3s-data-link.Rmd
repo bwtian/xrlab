@@ -1,0 +1,34 @@
+---
+title: 【数据】3S数据源链接
+author: ''
+date: "`r Sys.Date()`"
+slug: 3s-data-link
+categories: []
+tags: []
+---
+# 综合
+[freegisdata](http://freegisdata.rtwilson.com/) 一个很不错的综合GIS数据源
+
+[Gramin Daily](https://alternativaslibres.org/en/downloads.php) 
+
+[OSM Daily](http://download.geofabrik.de/) 
+Cygwin: wget -c http://download.geofabrik.de/asia/china-latest-free.shp.zip 
+
+# 亚洲
+## 中国
+[阿里地图选择器](http://datav.aliyun.com/tools/atlas/#&lat=32.24997445586331&lng=103.5791015625&zoom=4)
+[防灾减灾知识服务](http://drr.ikcest.org/)
+
+
+## 日本
+## 尼泊尔
+
+# 美洲
+## 美国
+[USGS](https://www.usgs.gov/products/data-and-tools/gis-data)
+
+
+# RS
+
+# GNSS
+

@@ -1,0 +1,11 @@
+---
+title: 【通知】近期学术报告通知
+author: XRLAB
+date: '`r Sys.time()`'
+slug: Notice
+categories: []
+tags: []
+---
+更新时间：`r Sys.time()`'
+
+- 【2020-10-10 周六 15:30】方一平 研究员：从链式影响到链式适应的逻辑转型——提升生计韧性 （腾讯会议或：376147855  密码：135790）[海报](https://user.qzone.qq.com/860080618/311/)

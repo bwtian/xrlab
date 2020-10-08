@@ -22,11 +22,24 @@ tags: []
 <pre class="bash"><code>git config --global user.name YOURNAME  # &quot;你的名字或昵称&quot;
 git config --global user.email EMAIL    # &quot;你的邮箱&quot;</code></pre>
 </div>
-<div id="git本地仓库和云端仓库联通" class="section level3">
-<h3>git本地仓库和云端仓库联通</h3>
+<div id="git本地已有项目仓库上传至云端" class="section level3">
+<h3>git本地已有项目仓库上传至云端</h3>
 <ul>
-<li>在云端创建一个项目</li>
+<li>在云端创建一个项目，例如：<a href="mailto:git@github.com" class="email">git@github.com</a>:bwtian/xrlab.git</li>
+<li>打开并修改<em>.gitignore</em>，确定上传到云端以及同步文件的范围，去除无须同步的文件</li>
+<li><em><code>git add .</code></em>添加项目中文件</li>
+<li><em><code>git commit -m “first commit”</code></em> 注释</li>
+<li><em><code>git branch -M main</code></em> 创建为主分支</li>
+<li><em><code>git remote add origin git@github.com:bwtian/xrlab.git</code></em> 联通本地与云端</li>
+<li><em><code>git push -u origin main</code></em> 推送本地到云端</li>
 </ul>
+<pre class="bash"><code>echo &quot;# xrlab&quot; &gt;&gt; README.md
+git init
+git add README.md
+git commit -m &quot;first commit&quot;
+git branch -M main
+git remote add origin git@github.com:bwtian/xrlab.git
+git push -u origin main</code></pre>
 </div>
 <div id="将本地文件夹上传到github" class="section level3">
 <h3>将本地文件夹上传到github</h3>

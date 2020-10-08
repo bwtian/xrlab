@@ -14,7 +14,7 @@ date: '2015-07-15'
 
     注：所有指导社团的相关信息发布、公示、展示和活动均在此网站进行，不再单独建立网站和微信公众号等，主要精力向学术研究靠近。
     
-如果你有好的建议和意见：请填写XRLAB网站意见收集及反馈表https://docs.qq.com/doc/DT2VDVkZ3VkFCd3Fo
+如果你有好的建议和意见：请填写XRLAB网站[意见收集及反馈表](https://docs.qq.com/doc/DT2VDVkZ3VkFCd3Fo)
 
 ## 技术框架
 技术建站同时，灵活多样的使用其他各种提升效率的技术如：云盘、共享文档等；各类专业托管网站如：Researchgate，Mendeley等。
@@ -51,6 +51,8 @@ date: '2015-07-15'
   + 硬件：常用硬件的讲解
   + 科普：社团的科普知识
   + 项目：项目信息和管理介绍
+  + 讲座：讲座信息更新到当日
+  + 通知：各类通知信息等
   + 活动：学生的组织的活动等
   + 团队：研究团伙、合作伙伴等
   + 社团：各社团活动用单独子标签【SIT】【ERA】【iDRREM】
@@ -111,4 +113,6 @@ at <- addTiles(map)
 addMarkers(at,lng=104.0067, lat=30.56346, popup="这里是XRLAB")
 ```
 
-*最后更新于`r Sys.time()`* 本页源代码请[点击下载]()
+
+*最后更新于`r Sys.time()`* 本页源代码模板【[右键点击另存为/Save
+link as](https://github.com/bwtian/xrlab/blob/main/content/about.Rmd)】
